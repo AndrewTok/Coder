@@ -1,12 +1,16 @@
 #include "XorChipher.h"
+#include "ECBStrategy.h"
 #include <iostream>
 int main()
 {
-	BlockChipher* xorcode = new XorChipher("key");
-
-	std::string codedStr = xorcode->code("12345");
+	XorChipher xorcode("key");
+	ECBStrategy ECBcoding(xorcode, 2);
+	
+	std::string codedStr = ECBcoding.code("123456");
 	std::cout << codedStr << std::endl;
-	std::string encodedStr = xorcode->encode(codedStr);
+
+	std::string encodedStr = ECBcoding.encode(codedStr);
 	std::cout << encodedStr << std::endl;
-	delete(xorcode);
+
+
 }
