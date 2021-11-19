@@ -1,8 +1,8 @@
-#include "XorStrategy.h"
+#include "XorChipher.h"
 #include <iostream>
 int main()
 {
-	CodeStrategy* xorcode = new XorStrategy("key");
+	BlockChipher* xorcode = new XorChipher("key");
 
 	std::string codedStr = xorcode->code("12345");
 	std::cout << codedStr << std::endl;

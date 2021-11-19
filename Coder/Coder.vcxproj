@@ -139,12 +139,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BlockChipher.h" />
     <ClInclude Include="CodeStrategy.h" />
-    <ClInclude Include="XorStrategy.h" />
+    <ClInclude Include="Context.h" />
+    <ClInclude Include="ECBStrategy.h" />
+    <ClInclude Include="XorChipher.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ECBStrategy.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="XorStrategy.cpp" />
+    <ClCompile Include="XorChipher.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

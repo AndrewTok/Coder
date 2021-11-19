@@ -1,13 +1,13 @@
 #pragma once
-#include "CodeStrategy.h"
+#include "BlockChipher.h"
 
-class XorStrategy final : public CodeStrategy
+class XorChipher final : public BlockChipher
 {
 
 	char currUsingPasswdSymbol(size_t indexInData) const;
 	
 public:
-	XorStrategy(std::string _passwd) : CodeStrategy(std::move(_passwd)) {}
+	XorChipher(std::string _passwd) : BlockChipher(std::move(_passwd)) {}
 	virtual std::string code(const std::string& data) const override;
 	virtual std::string encode(const std::string& codedData) const  override;
 	//virtual ~XorStrategy() = default;
