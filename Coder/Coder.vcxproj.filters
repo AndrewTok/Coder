@@ -24,13 +24,16 @@
     <ClInclude Include="CodeStrategy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Context.h">
+    <ClInclude Include="Client.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ECBStrategy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CBCStrategy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CFBStrategy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -48,6 +51,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CodeStrategy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CFBStrategy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Client.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
