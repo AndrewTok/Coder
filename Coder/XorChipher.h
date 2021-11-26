@@ -1,14 +1,22 @@
 #pragma once
-#include "BlockChipher.h"
+#include <string>
+#include <vector>
 
-class XorChipher final : public BlockChipher
+class XorChipher final
 {
-
-	char currUsingPasswdSymbol(size_t indexInData) const;
+	
+	
+	
 	
 public:
-	XorChipher(std::string _passwd) : BlockChipher(std::move(_passwd)) {}
-	virtual std::string code(const std::string& data) const override;
-	virtual std::string encode(const std::string& codedData) const  override;
-	//virtual ~XorStrategy() = default;
+
+	XorChipher(std::vector<char> _passwd) : passwd(std::move(_passwd)) {}
+	std::vector<char> code(const std::vector<char>& data) const;
+	std::vector<char> encode(const std::vector<char>& codedData) const;
+	void setPasswd(std::vector<char> _passwd) { passwd = std::move(_passwd); }
+
+private:
+	std::vector<char> passwd;
+	char currUsingPasswdSymbol(size_t indexInData) const;
+
 };

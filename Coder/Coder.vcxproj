@@ -140,12 +140,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BlockChipher.h" />
+    <ClInclude Include="CBCStrategy.h" />
     <ClInclude Include="CodeStrategy.h" />
     <ClInclude Include="Context.h" />
     <ClInclude Include="ECBStrategy.h" />
     <ClInclude Include="XorChipher.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CBCStrategy.cpp" />
+    <ClCompile Include="CodeStrategy.cpp" />
     <ClCompile Include="ECBStrategy.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="XorChipher.cpp" />

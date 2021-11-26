@@ -30,6 +30,9 @@
     <ClInclude Include="ECBStrategy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CBCStrategy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="XorChipher.cpp">
@@ -39,6 +42,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ECBStrategy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CBCStrategy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CodeStrategy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -5,15 +5,16 @@
 
 class ECBStrategy final : public CodeStrategy
 {
-	size_t getBlocksCountInData(const std::string& data) const;
-	void fillLastBlockWithZero(std::string& lastBlock) const;
-	virtual std::string codeBlock(const std::string& dataBlock) const override;
-	virtual std::string encodeBlock(const std::string& codedDataBlock) const override;
+	//size_t getBlocksCountInData(const std::vector<char>& data) const;
+	//std::vector<char> getBlockFromData(const std::vector<char>& data, size_t blockNum) const;
+	//size_t fillLastBlockWithZero(std::vector<char>& lastBlock) const;
+	//virtual std::vector<char> codeBlock(const std::vector<char>& dataBlock) const override;
+	//virtual std::vector<char> encodeBlock(const std::vector<char>& codedDataBlock) const override;
 
 public:
 
-	ECBStrategy(BlockChipher& _chipher, size_t _blockSize) : CodeStrategy(_chipher, _blockSize) {}
+	ECBStrategy(XorChipher& _chipher, size_t _blockSize) : CodeStrategy(_chipher, _blockSize) {}
 
-	virtual std::string code(const std::string& data) const override;
-	virtual std::string encode(const std::string& codedData) const override;
+	virtual std::pair<std::vector<char>, size_t> code(const std::vector<char>& data) const override;
+	virtual std::vector<char> encode(const std::vector<char>& codedData) const override;
 };
