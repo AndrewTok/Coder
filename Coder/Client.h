@@ -1,7 +1,7 @@
 #pragma once
 #include "CodeStrategy.h"
 
-//vector char
+
 class Client final
 {
 	CodeStrategy& strategy;

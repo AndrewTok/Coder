@@ -10,7 +10,7 @@ std::vector<char> codeAndPrint(std::vector<char>& data, Client& cl)
 	std::pair<std::vector<char>, size_t> codedDataAndZerosNum = cl.codeData(data);
 	for (auto i : codedDataAndZerosNum.first)
 	{
-		std::cout << std::hex << i << " ";
+		std::cout << i << " ";
 	}
 
 	std::cout << std::endl;
@@ -47,7 +47,7 @@ int main()
 	Client CFBcl(CFBcoding);
 	Client ECBcl(ECBcoding);
 	Client CBCcl(CBCcoding);
-	
+
 	std::vector<Client*> clients = { &CFBcl, &ECBcl, &CBCcl };
 	for (auto& cl : clients)
 	{

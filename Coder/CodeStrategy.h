@@ -18,6 +18,6 @@ protected:
 public:
 	virtual ~CodeStrategy() = default;
 	CodeStrategy(XorChipher& _chipher, size_t _blockSize) : chipher(_chipher), blockSize(_blockSize) {}
-	virtual std::pair<std::vector<char>, size_t> code(const std::vector<char>& data) const = 0; // return coded data and number of added zero to the end
-	virtual std::vector<char> encode(const std::vector<char>& codedData) const = 0;
+	virtual std::pair<std::vector<char>, size_t> code(const std::vector<char>& data) const = 0; // code with parts// return coded data and number of added zero to the end
+	virtual std::vector<char> encode(const std::vector<char>& codedData) const = 0; //decode длину в начале
 };

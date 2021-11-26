@@ -17,11 +17,6 @@ public:
 		std::srand(time(0));
 		std::transform(initVector.begin(), initVector.end(), initVector.begin(),
 			[](char c) -> char {return char(std::rand() % 256); });
-		//for (auto& i : initVector)
-		//{
-		//	char currSym = char(std::rand() % 256);
-		//	i = currSym;
-		//}
 	}
 
 
