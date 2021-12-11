@@ -19,7 +19,7 @@ std::vector<char> CFBStrategy::xorBlocks(const std::vector<char>& currBlock, con
 
 std::vector<char> CFBStrategy::encode(const std::vector<char>& data) const
 {
-	std::vector<char> codedData{ sizeof(size_t), 0 };
+	std::vector<char> codedData( sizeof(size_t), 0 );
 	std::vector<char> previousBlock{ initVector };
 	size_t blocksCount = getBlocksCountInData(data);
 	size_t numberOfAddedZeros = 0;
@@ -30,8 +30,7 @@ std::vector<char> CFBStrategy::encode(const std::vector<char>& data) const
 		{
 			numberOfAddedZeros = fillLastBlockWithZero(currBlock);
 		}
-		std::vector<char> codedBlock = encodeBlock(previousBlock);
-		codedBlock = xorBlocks(codedBlock, currBlock);
+		std::vector<char> codedBlock = xorBlocks(encodeBlock(previousBlock), currBlock);
 		previousBlock = codedBlock;
 		codedData.insert(codedData.end(), codedBlock.begin(), codedBlock.end());
 	}

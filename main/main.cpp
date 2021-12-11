@@ -37,11 +37,11 @@ void encodePrintDecodePrint(std::vector<char>& data, Client& cl)
 
 int main()
 {
-	std::vector<char> data = {'1', '2', '3', '4', '5', '6' };
+	std::vector<char> data = {'1', '2', '3', '4', '5', '6', '7' };
 	std::vector<char> passwd = { 'k', 'e', 'y' };
 	XorChipher xorcode(passwd);
-	CFBStrategy CFBcoding(xorcode, 2);
-	ECBStrategy ECBcoding(xorcode, 2);
+	CFBStrategy CFBcoding(xorcode, 4);
+	ECBStrategy ECBcoding(xorcode, 3);
 	CBCStrategy CBCcoding(xorcode, 2);
 
 	Client CFBcl(CFBcoding);
