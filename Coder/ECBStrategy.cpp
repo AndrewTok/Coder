@@ -46,10 +46,9 @@
 //	return chipher.encode(codedDataBlock);
 //}
 
-std::pair<std::vector<char>, size_t> ECBStrategy::code(const std::vector<char>& data) const
+std::vector<char> ECBStrategy::encode(const std::vector<char>& data) const
 {
-	std::vector<char> codedData;
-	
+	std::vector<char> codedData(sizeof(size_t), 0);
 	size_t blocksCount = getBlocksCountInData(data);
 	size_t numberOfAddedZeros = 0;
 	for (size_t currBlockNum = 0; currBlockNum < blocksCount; ++currBlockNum)
@@ -59,13 +58,14 @@ std::pair<std::vector<char>, size_t> ECBStrategy::code(const std::vector<char>& 
 		{
 			numberOfAddedZeros = fillLastBlockWithZero(currBlock);
 		}
-		std::vector<char> codedBlock = codeBlock(currBlock);
+		std::vector<char> codedBlock = encodeBlock(currBlock);
 		codedData.insert(codedData.end(), codedBlock.begin(), codedBlock.end());
 	}
-	return std::pair<std::vector<char>, size_t>{codedData, numberOfAddedZeros};
+	storeNumberOfAddedBytes(codedData, numberOfAddedZeros);
+	return codedData;
 }
 
-std::vector<char> ECBStrategy::encode(const std::vector<char>& codedData) const
+std::vector<char> ECBStrategy::decode(const std::vector<char>& codedData) const
 {
 	//std::string encodedData;
 
@@ -76,18 +76,19 @@ std::vector<char> ECBStrategy::encode(const std::vector<char>& codedData) const
 	//	encodedData.append(encodeBlock(currBlock));
 	//}
 	//return encodedData;
-	if (codedData.size() % blockSize != 0)
+	if (!checkCorrectnessCodedData(codedData))
 	{
 		return std::vector<char>{};
 	}
-	std::vector<char> encodedData;
-
-	size_t blocksCount = codedData.size() / blockSize;
+	std::vector<char> decodedData;
+	size_t numberOfAddedZeros = loadNumberOfAddedBytes(codedData);
+	size_t blocksCount = getBlocksCountInCodedData(codedData);
 	for (size_t currBlockNum = 0; currBlockNum < blocksCount; ++currBlockNum)
 	{
-		std::vector<char> currBlock = getBlockFromData(codedData, currBlockNum);
-		std::vector<char> encodedBlock = encodeBlock(currBlock);
-		encodedData.insert(encodedData.end(), encodedBlock.begin(), encodedBlock.end());
+		std::vector<char> currBlock = getBlockFromCodedData(codedData, currBlockNum);
+		std::vector<char> decodedBlock = decodeBlock(currBlock);
+		decodedData.insert(decodedData.end(), decodedBlock.begin(), decodedBlock.end());
 	}
-	return encodedData;
+	decodedData.erase(decodedData.end() - numberOfAddedZeros, decodedData.end());
+	return decodedData;
 }

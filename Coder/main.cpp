@@ -7,7 +7,7 @@
 
 std::vector<char> codeAndPrint(std::vector<char>& data, Client& cl)
 {
-	std::pair<std::vector<char>, size_t> codedDataAndZerosNum = cl.codeData(data);
+	std::pair<std::vector<char>, size_t> codedDataAndZerosNum = cl.encodeData(data);
 	for (auto i : codedDataAndZerosNum.first)
 	{
 		std::cout << std::hex << i << " ";

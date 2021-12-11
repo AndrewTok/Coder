@@ -1,11 +1,11 @@
 #include "Client.h"
 
-std::pair<std::vector<char>, size_t> Client::codeData(const std::vector<char>& data) const
+std::vector<char> Client::encodeData(const std::vector<char>& data) const
 {
-	return strategy.code(data);
+	return strategy.encode(data);
 }
 
-std::vector<char> Client::encodeData(const std::vector<char>& codedData) const
+std::vector<char> Client::decodeData(const std::vector<char>& codedData) const
 {
-	return strategy.encode(codedData);
+	return strategy.decode(codedData);
 }

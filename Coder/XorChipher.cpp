@@ -5,7 +5,7 @@ char XorChipher::currUsingPasswdSymbol(size_t indexInData) const
 	return passwd[indexInData % passwd.size()];
 }
 
-std::vector<char> XorChipher::code(const std::vector<char>& data) const
+std::vector<char> XorChipher::encode(const std::vector<char>& data) const
 {
 	size_t currIndex = 0;
 	std::vector<char> output;
@@ -19,7 +19,7 @@ std::vector<char> XorChipher::code(const std::vector<char>& data) const
 	return output;
 }
 
-std::vector<char> XorChipher::encode(const std::vector<char>& codedData) const
+std::vector<char> XorChipher::decode(const std::vector<char>& codedData) const
 {
-	return code(codedData);
+	return encode(codedData);
 }

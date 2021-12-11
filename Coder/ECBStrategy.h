@@ -15,6 +15,6 @@ public:
 
 	ECBStrategy(XorChipher& _chipher, size_t _blockSize) : CodeStrategy(_chipher, _blockSize) {}
 
-	virtual std::pair<std::vector<char>, size_t> code(const std::vector<char>& data) const override;
-	virtual std::vector<char> encode(const std::vector<char>& codedData) const override;
+	virtual std::vector<char> encode(const std::vector<char>& data) const override;
+	virtual std::vector<char> decode(const std::vector<char>& codedData) const override;
 };

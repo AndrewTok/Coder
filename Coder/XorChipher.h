@@ -17,8 +17,8 @@ public:
 			passwd = { '\0' };
 		}
 	}
-	std::vector<char> code(const std::vector<char>& data) const;
-	std::vector<char> encode(const std::vector<char>& codedData) const;
+	std::vector<char> encode(const std::vector<char>& data) const;
+	std::vector<char> decode(const std::vector<char>& codedData) const;
 	void setPasswd(std::vector<char> _passwd) { passwd = std::move(_passwd); }
 
 private:
