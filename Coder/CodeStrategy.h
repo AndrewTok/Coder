@@ -6,7 +6,7 @@ class CodeStrategy
 {
 
 protected:
-	XorChipher& chipher;
+	XorChipher chipher;
 	size_t blockSize;
 	virtual std::vector<char> encodeBlock(const std::vector<char>& dataBlock) const;
 	virtual std::vector<char> decodeBlock(const std::vector<char>& codedDataBlock) const;
@@ -26,7 +26,7 @@ public:
 	size_t loadNumberOfAddedBytes(const std::vector<char>& codedData) const;
 
 	virtual ~CodeStrategy() = default;
-	CodeStrategy(XorChipher& _chipher, size_t _blockSize) : chipher(_chipher), blockSize(_blockSize) {}
+	CodeStrategy(const std::vector<char>& passwd, size_t _blockSize) : chipher(passwd), blockSize(_blockSize) {}
 	virtual std::vector<char> encode(const std::vector<char>& data) const = 0; // code with parts? // return coded data and number of added zero to the end
 	virtual std::vector<char> decode(const std::vector<char>& codedData) const = 0; //decode длину в начале
 };

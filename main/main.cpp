@@ -39,10 +39,9 @@ int main()
 {
 	std::vector<char> data = {'1', '2', '3', '4', '5', '6', '7' };
 	std::vector<char> passwd = { 'k', 'e', 'y' };
-	XorChipher xorcode(passwd);
-	CFBStrategy CFBcoding(xorcode, 4);
-	ECBStrategy ECBcoding(xorcode, 3);
-	CBCStrategy CBCcoding(xorcode, 2);
+	CFBStrategy CFBcoding(passwd, 4);
+	ECBStrategy ECBcoding(passwd, 3);
+	CBCStrategy CBCcoding(passwd, 2);
 
 	Client CFBcl(CFBcoding);
 	Client ECBcl(ECBcoding);

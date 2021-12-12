@@ -12,7 +12,7 @@ class CBCStrategy final : public CodeStrategy
 
 public:
 
-	CBCStrategy(XorChipher& _chipher, size_t _blockSize) : CodeStrategy(_chipher, _blockSize), initVector(_blockSize)
+	CBCStrategy(const std::vector<char>& passwd, size_t _blockSize) : CodeStrategy(passwd, _blockSize), initVector(_blockSize)
 	{
 		std::srand(time(0));
 		std::transform(initVector.begin(), initVector.end(), initVector.begin(),
