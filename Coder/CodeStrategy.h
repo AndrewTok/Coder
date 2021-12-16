@@ -18,15 +18,15 @@ protected:
 	virtual std::vector<char> getBlockFromCodedData(const std::vector<char>& data, size_t blockNum) const;
 	virtual size_t fillLastBlockWithZero(std::vector<char>& lastBlock) const;
 
+	void storeNumberOfAddedBytes(std::vector<char>& codedData, size_t numberOfAddedZeros) const;
+	size_t loadNumberOfAddedBytes(const std::vector<char>& codedData) const;
 
 
 public:
 
-	void storeNumberOfAddedBytes(std::vector<char>& codedData, size_t numberOfAddedZeros) const;
-	size_t loadNumberOfAddedBytes(const std::vector<char>& codedData) const;
-
 	virtual ~CodeStrategy() = default;
 	CodeStrategy(const std::vector<char>& passwd, size_t _blockSize) : chipher(passwd), blockSize(_blockSize) {}
-	virtual std::vector<char> encode(const std::vector<char>& data) const = 0; // code with parts? // return coded data and number of added zero to the end
-	virtual std::vector<char> decode(const std::vector<char>& codedData) const = 0; //decode длину в начале
+	virtual std::vector<char> encode(const std::vector<char>& data) const = 0; 
+	virtual std::vector<char> decode(const std::vector<char>& codedData) const = 0;
+
 };

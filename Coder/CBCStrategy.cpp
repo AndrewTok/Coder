@@ -13,6 +13,10 @@ void CBCStrategy::codeCurrBlockWithPrevious(std::vector<char>& currBlock, const 
 
 std::vector<char> CBCStrategy::encode(const std::vector<char>& data) const
 {
+	if (data.size() == 0)
+	{
+		return std::vector<char>();
+	}
 	std::vector<char> codedData(sizeof(size_t), 0);
 	std::vector<char> previousBlock{ initVector };
 	size_t blocksCount = getBlocksCountInData(data);
@@ -44,9 +48,9 @@ std::vector<char> CBCStrategy::decode(const std::vector<char>& codedData) const
 	{
 		return std::vector<char>{};
 	}
-	std::vector<char> decodedData;
 	std::vector<char> previousBlock;
-	size_t blocksCount = getBlocksCountInCodedData(codedData); // codedData.size() / blockSize;
+	size_t blocksCount = getBlocksCountInCodedData(codedData);
+	std::vector<char> decodedData;
 	for (size_t currBlockNum = blocksCount - 1; currBlockNum != ~size_t(0); --currBlockNum)
 	{
 		if (currBlockNum == 0)

@@ -13,12 +13,17 @@ size_t CodeStrategy::getBlocksCountInData(const std::vector<char>& data) const
 
 size_t CodeStrategy::getBlocksCountInCodedData(const std::vector<char>& codedData) const
 {
+	if (codedData.size() < sizeof(size_t))
+	{
+		return 0;
+	}
 	return (codedData.size() - sizeof(size_t))/blockSize;
 }
 
 bool CodeStrategy::checkCorrectnessCodedData(const std::vector<char>& codedData) const
 {
-	return (codedData.size() - sizeof(size_t)) % blockSize == 0;
+
+	return (codedData.size() >= sizeof(size_t)) && (codedData.size() - sizeof(size_t)) % blockSize == 0;
 }
 
 std::vector<char> CodeStrategy::getBlockFromData(const std::vector<char>& data, size_t blockNum) const

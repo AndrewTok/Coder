@@ -19,6 +19,10 @@ std::vector<char> CFBStrategy::xorBlocks(const std::vector<char>& currBlock, con
 
 std::vector<char> CFBStrategy::encode(const std::vector<char>& data) const
 {
+	if (data.size() == 0)
+	{
+		return std::vector<char>();
+	}
 	std::vector<char> codedData( sizeof(size_t), 0 );
 	std::vector<char> previousBlock{ initVector };
 	size_t blocksCount = getBlocksCountInData(data);
@@ -62,6 +66,6 @@ std::vector<char> CFBStrategy::decode(const std::vector<char>& codedData) const
 		std::vector<char> decodedBlock = xorBlocks(currBlock, decodeBlock(previousBlock));
 		decodedData.insert(decodedData.begin(), decodedBlock.begin(), decodedBlock.end());
 	}
-	//decodedData.erase(decodedData.end() - numberOfAddedZeros, decodedData.end());
+	decodedData.erase(decodedData.end() - numberOfAddedZeros, decodedData.end());
 	return decodedData;
 }

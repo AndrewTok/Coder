@@ -38,9 +38,6 @@
     <ClCompile Include="XorChipher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ECBStrategy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

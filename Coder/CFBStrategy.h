@@ -11,7 +11,6 @@ class CFBStrategy final : public CodeStrategy
 	std::vector<char> xorBlocks(const std::vector<char>& currBlock, const std::vector<char>& previousBlock) const;
 
 public:
-	//убрать из парам xor chipher создавать как member  передавать passwd
 	CFBStrategy(const std::vector<char>& passwd, size_t _blockSize) : CodeStrategy(passwd, _blockSize), initVector(_blockSize)
 	{
 		std::srand(time(0));

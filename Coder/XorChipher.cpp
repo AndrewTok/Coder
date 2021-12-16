@@ -2,6 +2,10 @@
 #include <algorithm>
 char XorChipher::currUsingPasswdSymbol(size_t indexInData) const
 {
+	if (passwd.size() == 0)
+	{
+		return '\0';
+	}
 	return passwd[indexInData % passwd.size()];
 }
 
