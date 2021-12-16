@@ -1,8 +1,9 @@
 #pragma once
 #include <random>
-#include <time.h>
 #include <algorithm>
 #include "CodeStrategy.h"
+#include "randomForCoder.h"
+
 class CBCStrategy final : public CodeStrategy
 {
 
@@ -12,12 +13,7 @@ class CBCStrategy final : public CodeStrategy
 
 public:
 
-	CBCStrategy(const std::vector<char>& passwd, size_t _blockSize) : CodeStrategy(passwd, _blockSize), initVector(_blockSize)
-	{
-		std::srand(time(0));
-		std::transform(initVector.begin(), initVector.end(), initVector.begin(),
-			[](char c) -> char {return char(std::rand() % 256); });
-	}
+	CBCStrategy(const std::vector<char>& passwd, size_t _blockSize) : CodeStrategy(passwd, _blockSize), initVector(genRandomVector(_blockSize)) {}
 
 
 	virtual std::vector<char> encode(const std::vector<char>& data) const override;

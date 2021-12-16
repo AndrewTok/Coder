@@ -5,9 +5,6 @@
 class XorChipher final
 {
 	
-	
-	
-	
 public:
 
 	XorChipher(std::vector<char> _passwd) : passwd(std::move(_passwd)) 

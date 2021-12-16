@@ -3,20 +3,10 @@
 #include "ECBStrategy.h"
 #include "CFBStrategy.h"
 #include "Client.h"
+#include <random>
 #include <iostream>
+#include "randomForCoder.h"
 
-std::vector<char> genRandomVector(size_t size)
-{
-	if (size == 0)
-	{
-		return std::vector<char>();
-	}
-	std::vector<char> data(size);
-	std::srand(time(0));
-	std::transform(data.begin(), data.end(), data.begin(),
-		[](char c) -> char {return char(std::rand() % 256); });
-	return data;
-}
 
 void checkEncodeDecodeEachCLient(const std::vector<Client*>& clients, const std::vector<char>& data)
 {

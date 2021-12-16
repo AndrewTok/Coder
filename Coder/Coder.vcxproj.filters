@@ -33,6 +33,9 @@
     <ClInclude Include="CFBStrategy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="randomForCoder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="XorChipher.cpp">
@@ -51,6 +54,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Client.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="randomForCoder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
